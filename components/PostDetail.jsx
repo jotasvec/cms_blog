@@ -1,5 +1,6 @@
 import React from 'react';
 import DOMPurify from 'isomorphic-dompurify';
+import postStyles from './post-styles.module.css'
 
 import moment from 'moment';
 
@@ -91,7 +92,7 @@ const PostDetail = ( { post }) => {
                 </div>
                 <h1 className="mb-8 text-3xl font-semibold"> {post.title} </h1>
                 {console.log('post',post)}
-                <div dangerouslySetInnerHTML={sanitizedData() } />
+                <div className={`max-w-2xl mx-auto post ${postStyles.post}`} dangerouslySetInnerHTML={sanitizedData() } />
 
                 {/* {post.content.raw.children.map((typeObj, index) => 
                     //const childrens = typeObj.children.map((item, itemIndex) => getContentFragment(itemIndex, item.text, item));
