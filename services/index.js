@@ -1,4 +1,5 @@
 import { request, gql } from "graphql-request";
+import { comment } from "postcss";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
@@ -143,4 +144,23 @@ export const submitComment = async ( obj ) =>{
     });
 
     return result.json();
+}
+
+export const getComments = async ( slug ) =>{
+    const query = gql` 
+        query GetComments($slug: String!){
+        comments(
+            orderBy: createdAt_ASC
+            where: { post: { slug: $slug }  }
+        ){
+            name
+            lastName
+            email
+            comment
+            createdAt
+        }
+    }
+`
+const result = await request(graphqlAPI, query, { slug });
+return result.comments;
 }

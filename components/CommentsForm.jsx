@@ -20,9 +20,9 @@ const CommentsForm = ({ slug }) => {
     nameElement.current.value = localStorage.getItem('name');
     lastNameElement.current.value = localStorage.getItem('lastName');
     emailElement.current.value = localStorage.getItem('email');
-    storeDataEl = localStorage.getItem('storeData')
+    // storeDataEl = localStorage.getItem('storeData')
 
-  }, [])
+  }, []);
 
   const handleCommentSubmission = () => {
 
@@ -40,6 +40,13 @@ const CommentsForm = ({ slug }) => {
       console.log('name', name)
       console.log('lastName', lastName)
       console.log('email', email)
+      setTimeout(() => {
+        setError(false);
+        emailElement.current.value = '';
+        nameElement.current.value = '';
+        lastNameElement.current.value = '';
+        commentEl.current.value = '';
+      }, 4000);
       return;
     }
 
@@ -83,8 +90,8 @@ const CommentsForm = ({ slug }) => {
 
   return (
     <div className='bg-white shadow-lg rounded-lg p-8 pb-12 mb-8'>
-      <h3 className="text-xl mb-8 font-semibold border-b pb-4"> Comments </h3>   
-        {error && <p className='text-xs text-white bg-red-500 p-3 mb-2 rounded-lg'> All fields are required.</p> } 
+      <h3 className="text-xl mb-8 font-semibold border-b pb-4"> Submit your Comment </h3>   
+        {error && <p className='text-xs text-white bg-red-500 p-3 mb-2 rounded-lg transition easy'> All fields are required.</p> } 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
           <input 
             className='py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700'
@@ -137,7 +144,7 @@ const CommentsForm = ({ slug }) => {
             onClick={handleCommentSubmission}>
               Submit Comment
             </button>
-            {showSuccessMessage && <span className="text-xl float-right font-semibold mt-3 text-green-500"> 
+            {showSuccessMessage && <span className="text-xl float-right font-semibold mt-3 text-green-500 transition easy"> 
               Your comment has been submited for review
             </span> }
         </div>
