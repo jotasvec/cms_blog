@@ -5,9 +5,15 @@ import { getComments } from "../services";
 
 
 
+
 const Comments = ({ slug }) => {
 
   const [comments, setComments] = useState([]);
+
+  const getInitials = (name, lastName) =>{
+    
+    return `${name.charAt(0).toUpperCase() }${lastName.charAt(0).toUpperCase()}`
+  }
 
   useEffect(() => {
     getComments(slug)
@@ -28,11 +34,23 @@ const Comments = ({ slug }) => {
             {
               comments.map((comment) => (
                 <div key={comment.createdAt} className='bg-white shadow-lg rounded-lg p-8 pb-12 mb-8 ' >
-                  <h3>{comment.name} {comment.lastName} </h3>
-                  <h4>{comment.email}</h4>
-                  <span>{ moment(comment.createdAt).format('DD MM, YYYY') }</span>
-                  <p>{parse(comment.comment)}</p>
+                  <div className='border-b-2 pb-2'>
+                    <div className='flex items-center'>
+                      <div className='bg-amber-500 w-15 h-15 p-2 rounded-full'>
+                        <p className='text-gray-500 opacity-70 text-3xl font-bold'> {getInitials(comment.name, comment.lastName)} </p>
+                      </div>
+  
+                      <div className='flex-grow ml-2'>
+                        <h3 className='text-gray-800 text-xl font-semibold' >{comment.name} {comment.lastName} </h3>
+                        <div className='flex justify-between'>
+                          <h4 className='text-gray-600 text-md' >{comment.email}</h4>
+                          <p className='text-gray-500 font-xs'>{ moment(comment.createdAt).format('MMM DD, YYYY') }</p>
+                        </div>
+                      </div>
 
+                    </div>                   
+                  </div>
+                  <p className='my-2 py-3 text-justify '>{parse(comment.comment)}</p>
                 </div>
               ))
             }
