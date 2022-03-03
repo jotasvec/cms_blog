@@ -25,11 +25,11 @@ const PostWidget = ({ categories, slug }) => {
 
   return (
     <div className={`${postStyles.wrappedComponent} p-8 mb-8 `}>
-      <h3 className='text-xl mb-6 font-semibold border-b pb-4'>
+      <h3 className='text-xl mb-6 font-semibold border-b border-b-slate-300 pb-4'>
         {slug? 'Related Post':'Recent Post'}
       </h3>
       {relatedPost.map(( post ) => (
-        <div key={post.title} className='flex items-center w-full border-b-2 border-b-slate-100 mb-2' >
+        <div key={post.title} className='flex items-center w-full border-b  mb-2' >
           <div className="w-16 flex-none">
             <img src={post.featureImage.url} alt={post.title} 
               className='align-middle rounded-full'

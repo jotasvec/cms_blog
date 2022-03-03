@@ -33,5 +33,5 @@
   }
 
   .wrappedComponent{
-    @apply bg-stone-200 shadow-lg rounded-lg p-0;
+    @apply bg-stone-100 shadow-lg rounded-lg p-0;
   }

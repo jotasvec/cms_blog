@@ -25,7 +25,7 @@ export default function Home({ posts }) {
         {/* Main Content  */}
         <div className='lg:col-span-8 col-span-1'>
           {posts.map((post, index) => (
-            <PostCard post={post.node} key={post.node.title} />
+            <PostCard post={post.node} key={post.node.slug} />
           ))}
         </div>
 

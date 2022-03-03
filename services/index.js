@@ -190,3 +190,43 @@ export const getFeaturedPosts = async () => {
     const result = await request(graphqlAPI, query);
     return result.posts
 }
+
+export const getPostByCategories = async (slug) => {
+    const query = gql`
+        query GetPostByCategories($slug: String!)  {
+        postsConnection(
+            where: { categories_some: {slug: $slug} }
+            orderBy: createdAt_DESC
+        ){
+            edges {
+                node {
+                    author {
+                        id
+                        name
+                        photo {
+                            url
+                        }
+                        description {
+                            text
+                        }
+                        createdAt
+                    }
+                    excerpt
+                    slug
+                    title
+                    categories {
+                        name
+                        slug
+                    }
+                    featureImage {
+                        url
+                    }
+                }
+            }
+        }
+    }
+    `
+    const result = await request(graphqlAPI, query, { slug });
+    
+    return result.postsConnection.edges;
+}
