@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { submitComment } from "../services";
+import postStyles from './post-styles.module.css'
 
 
 
@@ -89,7 +90,7 @@ const CommentsForm = ({ slug }) => {
   
 
   return (
-    <div className='bg-white shadow-lg rounded-lg p-8 pb-12 mb-8'>
+    <div className={`${postStyles.wrappedComponent} p-8 mb-8 pb-12`}>
       <h3 className="text-xl mb-8 font-semibold border-b pb-4"> Submit your Comment </h3>   
         {error && <p className='text-xs text-white bg-red-500 p-3 mb-2 rounded-lg transition easy'> All fields are required.</p> } 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">

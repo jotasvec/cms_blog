@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import parse from 'html-react-parser'
 import { getComments } from "../services";
+import postStyles from './post-styles.module.css'
+
 
 
 
@@ -24,7 +26,7 @@ const Comments = ({ slug }) => {
   
   return (
     // mt-20 mb-8 p-12 relative rounded-lg bg-slate-900 bg-opacity-30
-    <div className='mt-20 mb-8 p-12 relative rounded-lg bg-slate-900 bg-opacity-30'>
+    <div className='mt-20 mb-8 p-12 relative rounded-lg bg-slate-600 bg-opacity-30'>
       <h2 className="text-2xl text-white mb-8 font-semibold border-b pb-4">
         Peeps Comments
       </h2>
@@ -33,7 +35,7 @@ const Comments = ({ slug }) => {
           <div>
             {
               comments.map((comment) => (
-                <div key={comment.createdAt} className='bg-white shadow-lg rounded-lg p-8 pb-12 mb-8 ' >
+                <div key={comment.createdAt} className={`${postStyles.wrappedComponent} p-8 mb-8 pb-12`} >
                   <div className='border-b-2 pb-2'>
                     <div className='flex items-center'>
                       <div className='bg-amber-500 w-15 h-15 p-2 rounded-full'>

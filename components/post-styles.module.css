@@ -31,3 +31,7 @@
   .post a{
     @apply text-blue-600 visited:text-purple-600;
   }
+
+  .wrappedComponent{
+    @apply bg-stone-200 shadow-lg rounded-lg p-0;
+  }

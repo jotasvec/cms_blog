@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Author = ({author}) => {
   return (
-    <div className='text-center mt-20 mb-8 p-12 relative rounded-lg bg-slate-900 bg-opacity-30'>
+    <div className='text-center mt-20 mb-8 p-12 relative rounded-lg bg-slate-600 bg-opacity-30'>
       <div className='absolute left-0 right-2 -top-14'>
         <Image
           unoptimized
