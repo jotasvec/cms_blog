@@ -5,7 +5,7 @@ import { getCategories, getPostByCategories } from "../../services";
 
 import { PostCard, Categories, Loader } from "../../components";
 
-const postsCategories = ({posts}) => {
+const PostsCategories = ({posts}) => {
 
     const router = useRouter();
 
@@ -33,7 +33,7 @@ const postsCategories = ({posts}) => {
     );
 }
 
-export default postsCategories;
+export default PostsCategories;
 
 export async function getStaticProps({params}){
     const posts = (await getPostByCategories(params.slug)) || [];

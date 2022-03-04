@@ -5,10 +5,10 @@ import { getPosts, getPostDetails } from "../../services";
 import { PostDetail, Categories, PostWidget, Author, Comments, CommentsForm, Loader  } from "../../components";
 
 
-const postDetails = ({post}) => {
+const PostDetails = ({post}) => {
     const router = useRouter();
 
-    if (router.isFallback){
+    if(router.isFallback){
         return <Loader />
     }
 
@@ -18,7 +18,7 @@ const postDetails = ({post}) => {
                 <div className="col-span-1 lg:col-span-8">
                     <PostDetail post={post} />
                     <Author author={post.author} />
-                    <CommentsForm slug={post.slug} />
+                    <CommentsForm slug={post.slug} />res
                     <Comments slug={post.slug} />
                 </div>
                  {/* sidebar */}
@@ -33,7 +33,7 @@ const postDetails = ({post}) => {
     );
 };
 
-export default postDetails;
+export default PostDetails;
 
 export async function getStaticProps({ params }){
     const data = (await getPostDetails(params.slug)) || [];
