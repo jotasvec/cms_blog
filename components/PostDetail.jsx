@@ -91,7 +91,6 @@ const PostDetail = ( { post }) => {
                     </div>
                 </div>
                 <h1 className="mb-8 text-3xl font-semibold"> {post.title} </h1>
-                {console.log('post',post)}
                 <div className={`max-w-2xl mx-auto post ${postStyles.post}`} dangerouslySetInnerHTML={sanitizedData() } />
 
                 {/* {post.content.raw.children.map((typeObj, index) => 

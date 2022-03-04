@@ -38,10 +38,6 @@ const CommentsForm = ({ slug }) => {
     
     if (!comment || !name || !lastName || !email ){
       setError(true)
-      console.log('comment', comment)
-      console.log('name', name)
-      console.log('lastName', lastName)
-      console.log('email', email)
       setTimeout(() => {
         setError(false);
         emailElement.current.value = '';

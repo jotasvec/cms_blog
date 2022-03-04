@@ -22,7 +22,6 @@ const Comments = ({ slug }) => {
       .then((result) => setComments(result) );
     }, [])
   
-  console.log('comments',comments);
   
   return (
     // mt-20 mb-8 p-12 relative rounded-lg bg-slate-900 bg-opacity-30

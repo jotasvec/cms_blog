@@ -35,8 +35,6 @@ const FeaturedPost = () => {
         },
       };
     
-    console.log('featurePosts', topPosts)
-    
     return (
         <div className='snap-x mb-8'>
             <Carousel

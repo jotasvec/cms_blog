@@ -19,7 +19,6 @@ const PostWidget = ({ categories, slug }) => {
       getRecentPost()
         .then((result) => {setRelatedPost(result)});
     }
-    console.log("related post",relatedPost);
   }, [slug]);
   
 

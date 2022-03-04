@@ -14,7 +14,6 @@ const Categories = () => {
 
   }, []);
   
-  console.log('categories - ', categories)
 
   return (
     <div className={`${postStyles.wrappedComponent} p-8 mb-8 `}>
