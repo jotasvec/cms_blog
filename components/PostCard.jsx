@@ -1,12 +1,14 @@
 import React from 'react';
 import moment from 'moment';
 import Link from 'next/link';
+import { useRouter } from "next/router";
+import Button from "./Button";
 import postStyles from './post-styles.module.css'
 
 
 
 const PostCard = ({ post }) => {
-
+  const router = useRouter();
   return (
     <div className={`${postStyles.wrappedComponent} p-0 lg:p-8 pb-12 mb-8`}>
     
@@ -40,11 +42,16 @@ const PostCard = ({ post }) => {
       </div>
       <p className="text-justify svectext-lg text-gray-700 font-normal px-4 lg:px-20 mb-8">{post.excerpt}</p>
       <div className="text-center">
-        <Link href={`/post/${post.slug}`}>
-          <span className="transition duration-500 transform hover:-translate-y-1 inline-block bg-pink text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">
-            Continue reading ...
-          </span>
-        </Link>
+        {/* <Link href={`/post/${post.slug}`}> */}
+        <Button 
+          text='continue reading'
+          // click={()=> router.push(`/post/${post.slug}`)}
+          click={() => router.push({
+            pathname: '/post/[pid]',
+            query: {pid: post.slug}
+          })}
+        /> 
+        {/* </Link> */}
       </div>
       
     </div>
