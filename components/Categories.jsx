@@ -23,7 +23,7 @@ const Categories = () => {
       </h3>
       {categories.map(( category ) => (
         <div key={category.slug} className='flex items-center w-full' >
-          <Link href={`/categories/${category.slug}`} passHref>
+          <Link href={`/categories/${category.slug}`}>
             <span className='cursor-pointer block pb-3 mb-3'>{category.name}</span>
           </Link>
         </div>
