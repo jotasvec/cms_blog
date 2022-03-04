@@ -1,5 +1,5 @@
-import React from 'react'
 import { useRouter } from 'next/router';
+import React from 'react';
 
 import { getCategories, getPostByCategories } from "../../services";
 
@@ -47,6 +47,6 @@ export async function getStaticPaths(){
 
     return{
         paths: categories.map(({slug})=> ({params: { slug }})),
-        fallback: true
+        fallback: true,
     }
 }
